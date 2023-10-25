@@ -2,23 +2,29 @@
 <html>
 <head>
   <title>
-    Отправляем JSON-данные на сервер
+    Регистрация пользователя
   </title>
+  <link rel="stylesheet" href="css/design.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body style="text-align:center;" id="body">
   <!-- заголовок -->
-  <h1> Простая форма для проверки работы JSON </h1>
+  <h1>Регистрация пользователя</h1>
   <!-- делаем форму с полями ввода -->
   <p>
-    <input type="text" id="name" placeholder="Ваше имя">
-    <input type="text" id="lastname" placeholder="и фамилия">
+      <input class = "login" type="text" id="loginInput" placeholder="Введите логин" name="login">
+    <div class="password">
+      <input type="password" id="passwordInput" placeholder="Введите пароль" name="password">
+      <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+      <input type="password" id="passwordOut" placeholder="Повторите пароль" name="password">
+    </div>
+    
     <!-- по нажатию на эту кнопку данные уйдут на сервер -->
-    <button onclick="sendJSON()">Проверить JSON</button>
+    <button onclick="sendJSON()">Зарегистироваться</button>
+    <button onclick="qwe()">Проверить</button>
     <!-- а вот тут они появятся снова, но уже после обработки сервером -->
   <p class="result" style="color:blue"></p>
   </p>
     <script src="js/main.js"></script>
-
 </body>
 </html>
