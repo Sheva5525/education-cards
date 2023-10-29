@@ -5,16 +5,16 @@ class server(http.server.BaseHTTPRequestHandler):
         if self.path == '/':
             self.send_response(200)
             self.send_header('Content-Type', 'text/html; charset=utf-8')
-            self.send_header('Content-Length', len(open(self.pwd + '../skrip/index.html','rb').read()))
+            self.send_header('Content-Length', len(open('../script/index.html','rb').read()))
             self.end_headers()
-            self.wfile.write(open(self.pwd + '../skrip/index.html','rb').read())
+            self.wfile.write(open('../script/index.html','rb').read())
         
         if self.path == '/main.js':
             self.send_response(200)
             self.send_header('Content-Type', 'javascript/js; charset=utf-8')
-            self.send_header('Content-Length', len(open(self.pwd + '../skrip/js/index.html','rb').read()))
+            self.send_header('Content-Length', len(open('../script/js/main.js','rb').read()))
             self.end_headers()
-            self.wfile.write(open(self.pwd + '../skrip/js/main.js','rb').read())
+            self.wfile.write(open('../script/js/main.js','rb').read())
 
 class ThreadingHTTPServer(socketserver.ThreadingMixIn, http.server.HTTPServer):
     pass
