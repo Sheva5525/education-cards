@@ -15,6 +15,13 @@ class server(http.server.BaseHTTPRequestHandler):
             self.send_header('Content-Length', len(open('../script/js/main.js','rb').read()))
             self.end_headers()
             self.wfile.write(open('../script/js/main.js','rb').read())
+        if self.path == '/design.css':
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/css; charset=utf-8')
+            self.send_header('Content-Length', len(open('../script/css/design.css','rb').read()))
+            self.end_headers()
+            self.wfile.write(open('../script/css/design.css','rb').read())
+
     
     def do_POST(self):
         html = "Все ок\n"
