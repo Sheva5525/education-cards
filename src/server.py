@@ -1,4 +1,4 @@
-import http.server, socketserver
+mport http.server, socketserver
 
 class server(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
@@ -29,11 +29,16 @@ class server(http.server.BaseHTTPRequestHandler):
             l = int(self.headers.get('Content-Length'))
             l = self.rfile.read(l)
             print(l.decode())
-            self.send_response(200)
-            self.send_header('Content-Type', 'javascript/js; charset=utf-8')
-            self.send_header('Content-Length', len(html))
-            self.end_headers()
-            self.wfile.write(html.encode())
+            if ( l == '[' ) :
+                self.send_response(200)
+                self.send_header('Content-Type', 'javascript/js; charset=utf-8')
+                self.send_header('Content-Length', len(html))
+                self.end_headers()
+                self.wfile.write(html.encode())
+            else :
+                self.send_response(302)
+                self.send_header('Location', '/')
+                self.end_headers()
 
 
 class ThreadingHTTPServer(socketserver.ThreadingMixIn, http.server.HTTPServer):
