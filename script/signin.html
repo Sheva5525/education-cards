@@ -2,25 +2,26 @@
 <html>
 <head>
   <title>
-    EduCards
+    Регистрация пользователя
   </title>
+  <link rel="stylesheet" href="/design.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
-<body id="body">
-  
-  <h1>Главная страница проекта</h1>
-  <hr>
-  <p>Ссылка на репозиторий: <a href="https://github.com/Sheva5525/education-cards">GitHub</a></p>
-
-  <h1>Авторы</h1>
-  <hr>
-  <p>pbalykov - developer <a href="https://github.com/pbalykov">GitHub</a></p>
-  <p>Sheva5525 - developer <a href="https://github.com/Sheva5525">GitHub</a></p>
-
-  <h1>Отладка</h1>
-  <hr>
-  <button>Sign in</button>
-  <button>Sign up</button>
-
+<body style="text-align:center;" id="body">
+  <!-- заголовок -->
+  <h1>Авторизация пользователя</h1>
+  <!-- делаем форму с полями ввода -->
+  <p>
+      <input class = "login" type="text" id="loginInput" placeholder="Введите логин" name="login">
+    <div class="password">
+      <input type="password" id="passwordInput" placeholder="Введите пароль" name="password">
+      <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+    </div>
+    
+    <!-- по нажатию на эту кнопку данные уйдут на сервер -->
+    <button onclick="sendJSON()">Авторизоваться</button>
+    <!-- а вот тут они появятся снова, но уже после обработки сервером -->
+  </p>
+    <script src="/signin.js"></script>
 </body>
 </html>

@@ -1,10 +1,5 @@
 function sendJSON() {
 
-    if (passwordInput.value != passwordOut.value) {
-        alert("Пароли не совпадают");
-        return;
-    }
-
     if (passwordInput.value.length < 7) {
         alert("Пароль меньше семи символов");
         return;
@@ -34,11 +29,9 @@ function sendJSON() {
     // преобразуем наши данные JSON в строку
     var data = JSON.stringify({ "login": loginInput.value, "password": passwordInput.value });
     // когда всё готово, отправляем JSON на сервер
-    xhr.send(data); //Тут сенд не успевает отправиться, сразу идёт переход на новую страницу html
+    xhr.send(data);
 
-    setTimeout(function(){
-      window.location.href = '/';
-    }, 1 * 1000);
+    //window.location.href = '/';
 }
 
 function show_hide_password(target){
@@ -59,23 +52,5 @@ function show_hide_password(target){
 
     }
 
-    input = document.getElementById('passwordOut');
-
-    if (input.getAttribute('type') == 'password') {
-
-        target.classList.add('view');
-
-        input.setAttribute('type', 'text');
-
-    } else {
-
-        target.classList.remove('view');
-
-        input.setAttribute('type', 'password');
-
-    }
-
-
     return false;
-
 }
