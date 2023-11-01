@@ -44,6 +44,18 @@ class server(http.server.BaseHTTPRequestHandler):
 			self.send_header('Content-Length', len(open('../script/signin.html','rb').read()))
 			self.end_headers()
 			self.wfile.write(open('../script/signin.html','rb').read())
+		if self.path == '/paper.jpg':
+			self.send_response(200)
+			self.send_header('Content-Type', 'image/jpg; charset=utf-8')
+			self.send_header('Content-Length', len(open('../script/css/paper.jpg','rb').read()))
+			self.end_headers()
+			self.wfile.write(open('../script/css/paper.jpg','rb').read())
+		if self.path == '/back-reg.jpg':
+			self.send_response(200)
+			self.send_header('Content-Type', 'image/jpg; charset=utf-8')
+			self.send_header('Content-Length', len(open('../script/css/back-reg.jpg','rb').read()))
+			self.end_headers()
+			self.wfile.write(open('../script/css/back-reg.jpg','rb').read())
 	
 	def do_POST(self):
 		html = "Все ок\n"
