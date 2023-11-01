@@ -5,22 +5,27 @@
     EduCards
   </title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/mainpage.css">
 </head>
 <body id="body">
-  
-  <h1>Главная страница проекта</h1>
-  <hr>
-  <p>Ссылка на репозиторий: <a href="https://github.com/Sheva5525/education-cards">GitHub</a></p>
+  <div class="header-parent">
+    <div class="header">
+        <img class="ico-header one-line" src="/list-check.png">
+        <h1 class="one-line">Главная страница проекта</h1>
+        <button class="one-line gradient-button header-button" onclick="gotoSignIn()">Sign in</button>
+        <button class="one-line gradient-button header-button-up " onclick="gotoSignUp()">Sign up</button>
+    </div>
+  </div>
 
-  <h1>Авторы</h1>
-  <hr>
-  <p>pbalykov - developer <a href="https://github.com/pbalykov">GitHub</a></p>
-  <p>Sheva5525 - developer <a href="https://github.com/Sheva5525">GitHub</a></p>
+  <div class="info">
+    <p>Ссылка на репозиторий: <a href="https://github.com/Sheva5525/education-cards">GitHub</a></p>
 
-  <h1>Отладка</h1>
-  <hr>
-  <button onclick="gotoSignIn()">Sign in</button>
-  <button onclick="gotoSignUp()">Sign up</button>
+    <h2>Авторы</h2>
+    <hr>
+    <p>pbalykov - developer <a href="https://github.com/pbalykov">GitHub</a></p>
+    <p>Sheva5525 - developer <a href="https://github.com/Sheva5525">GitHub</a></p>
+  </div>
+
   <script src="/mainpage.js"></script>
 </body>
 </html>
