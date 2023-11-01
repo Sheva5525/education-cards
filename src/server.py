@@ -26,6 +26,12 @@ class server(http.server.BaseHTTPRequestHandler):
 			self.send_header('Content-Length', len(open('../script/css/design.css','rb').read()))
 			self.end_headers()
 			self.wfile.write(open('../script/css/design.css','rb').read())
+		if self.path == '/mainpage.css':
+			self.send_response(200)
+			self.send_header('Content-Type', 'text/css; charset=utf-8')
+			self.send_header('Content-Length', len(open('../script/css/mainpage.css','rb').read()))
+			self.end_headers()
+			self.wfile.write(open('../script/css/mainpage.css','rb').read())
 		if self.path == '/mainpage.js':
 			self.send_response(200)
 			self.send_header('Content-Type', 'text/javascript; charset=utf-8')
@@ -56,6 +62,12 @@ class server(http.server.BaseHTTPRequestHandler):
 			self.send_header('Content-Length', len(open('../script/css/back-reg.jpg','rb').read()))
 			self.end_headers()
 			self.wfile.write(open('../script/css/back-reg.jpg','rb').read())
+		if self.path == '/list-check.png':
+			self.send_response(200)
+			self.send_header('Content-Type', 'image/png; charset=utf-8')
+			self.send_header('Content-Length', len(open('../script/css/list-check.png','rb').read()))
+			self.end_headers()
+			self.wfile.write(open('../script/css/list-check.png','rb').read())
 	
 	def do_POST(self):
 		html = "Все ок\n"
