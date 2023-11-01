@@ -1,4 +1,8 @@
-import http.server, socketserver
+import http.server, socketserver, json
+import request_bd
+
+
+#bd = request_bd.bd_user('user.bd', "USER")
 
 class server(http.server.BaseHTTPRequestHandler):
 	def do_GET(self):
@@ -69,22 +73,26 @@ class server(http.server.BaseHTTPRequestHandler):
 			self.end_headers()
 			self.wfile.write(open('../script/css/list-check.png','rb').read())
 	
-	def do_POST(self):
-		html = "Все ок\n"
-		if (self.path == '/regist') :
-			l = int(self.headers.get('Content-Length'))
-			l = self.rfile.read(l)
-			print(l.decode())
-			if ( l == '[' ) :
-				self.send_response(200)
-				self.send_header('Content-Type', 'text/javascript; charset=utf-8')
-				self.send_header('Content-Length', len(html))
-				self.end_headers()
-				self.wfile.write(html.encode())
-			else :
-				self.send_response(302)
-				self.send_header('Location', '/')
-				self.end_headers()
+
+    def do_POST(self):
+        bd = request_bd.bd_user('user.bd', "USER")
+        #    if self.path == '/regist' :
+        l = int(self.headers.get('Content-Length'))
+        l = self.rfile.read(l)
+        print(l)
+        l = json.loads(l)
+        if ( not(bd.add_user(1, l['login'], l['password']))) :
+            html = "Error"
+            self.send_response(500)
+            self.send_header('Content-Type', 'text/html; charset=utf-8')
+            self.send_header('Content-Length', len(html))
+            self.end_headers()
+            self.wfile.write(html.encode())
+            print("Error")
+        else :
+            self.send_response(200)
+            self.send_header('Location', '/')
+            self.end_headers()
 
 
 class ThreadingHTTPServer(socketserver.ThreadingMixIn, http.server.HTTPServer):
