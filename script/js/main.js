@@ -26,19 +26,23 @@ function sendJSON() {
     // когда придёт ответ на наше обращение к серверу, мы его обработаем здесь
     xhr.onreadystatechange = function () {
       // если запрос принят и сервер ответил, что всё в порядке
-    if (xhr.readyState === 4 && xhr.status === 200) {
-        // выводим то, что ответил нам сервер — так мы убедимся, что данные он получил правильно
-        console.log();
-      }
+        if (xhr.status === 200) {
+            // выводим то, что ответил нам сервер — так мы убедимся, что данные он получил правиль
+            window.location.href = '/';
+            console.log();
+          }
+        else {
+            alert("Говно Неудачно");
+        }
     };
     // преобразуем наши данные JSON в строку
     var data = JSON.stringify({ "login": loginInput.value, "password": passwordInput.value });
     // когда всё готово, отправляем JSON на сервер
     xhr.send(data); //Тут сенд не успевает отправиться, сразу идёт переход на новую страницу html
 
-    setTimeout(function(){
-      window.location.href = '/';
-    }, 1 * 1000);
+ //   setTimeout(function(){
+ //     window.location.href = '/';
+ //   }, 1 * 1000);
 }
 
 function show_hide_password(target){
