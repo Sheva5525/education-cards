@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Регистрация пользователя
+  </title>
+  <link rel="stylesheet" href="/design.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body style="text-align:center;" id="body">
+  <div class="hdr-reg">
+  <div class="reg">
+  <!-- заголовок -->
+  <h1>Регистрация пользователя</h1>
+  <!-- делаем форму с полями ввода -->
+  <p>
+      <input class = "login" type="text" id="loginInput" placeholder="Введите логин" name="login">
+    <div class="password">
+      <input type="password" id="passwordInput" placeholder="Введите пароль" name="password">
+      <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+      <input type="password" id="passwordOut" placeholder="Повторите пароль" name="password">
+    </div>
+    
+    <!-- по нажатию на эту кнопку данные уйдут на сервер -->
+    <button onclick="sendJSON()">Зарегистироваться</button>
+    <!-- а вот тут они появятся снова, но уже после обработки сервером -->
+  </p>
+</div>
+</div>
+    <script src="/main.js"></script>
+</body>
+</html>
